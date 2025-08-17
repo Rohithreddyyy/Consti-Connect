@@ -1,0 +1,63 @@
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-rotate {
+    animation: rotate 20s linear infinite;
+}
+
+.bg-grid-white\/\[0\.05\] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #1e40af 0%, #8b5cf6 40%, #ec4899 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.news-card:hover .news-image {
+    transform: scale(1.05);
+}
+
+.constitution-card {
+    transition: all 0.3s ease;
+}
+
+.constitution-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.bookmark-item {
+    transition: all 0.3s ease;
+}
+
+.bookmark-item:hover {
+    transform: translateX(5px);
+}
+
+.code-block {
+    background: #0f172a;
+    color: #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+}
+
+.python-keyword {
+    color: #ff79c6;
+}
+
+.python-function {
+    color: #50fa7b;
+}
+
+.python-string {
+    color: #f1fa8c;
+}
+
+.python-comment
