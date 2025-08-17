@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ConstiConnect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/config.js"></script>
+</head>
+<body class="bg-gradient-to-br from-primary/5 to-secondary/5 min-h-screen font-sans">
+    <!-- Background Animation -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-[-200%] left-[-200%] w-[500%] h-[500%] animate-rotate">
+            <div class="absolute inset-0 bg-[conic-gradient(#0ea5e9_0%,#8b5cf6_10%,#ec4899_20%,#f97316_30%,#0ea5e9_40%,#8b5cf6_50%,#ec4899_60%,#f97316_70%,#0ea5e9_80%,#8b5cf6_90%,#ec4899_100%)] opacity-10 blur-[100px]"></div>
+        </div>
+    </div>
+
+    <!-- Login Container -->
+    <div class="relative z-10 min-h-screen flex items-center justify-center px-4">
+        <div class="max-w-md w-full">
+            <!-- Logo and Title -->
+            <div class="text-center mb-8">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <div class="bg-primary p-3 rounded-xl">
+                        <i class="fas fa-scale-balanced text-white text-2xl"></i>
+                    </div>
+                    <span class="text-3xl font-serif font-bold text-primary">ConstiConnect</span>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-900 mb-2">Welcome Back</h1>
+                <p class="text-gray-600">Sign in to your account to continue</p>
+            </div>
+
+            <!-- Login Form -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                <form id="loginForm" class="space-y-6">
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                            Email Address
+                        </label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </div>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required
+                                class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                                placeholder="Enter your email"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+                            Password
+                        </label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                required
+                                class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                                placeholder="Enter your password"
+                            >
+                            <button 
+                                type="button" 
+                                id="togglePassword"
+                                class="absolute inset-y-0 right-0 pr-3 flex items-center"
+                            >
+                                <i class="fas fa-eye text-gray-400 hover:text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me & Forgot Password -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input 
+                                id="remember" 
+                                name="remember" 
+                                type="checkbox" 
+                                class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+                            >
+                            <label for="remember" class="ml-2 block text-sm text-gray-700">
+                                Remember me
+                            </label>
+                        </div>
+                        <a href="#" class="text-sm text-primary hover:text-primary/80 transition">
+                            Forgot password?
+                        </a>
+                    </div>
+
+                    <!-- Login Button -->
+                    <button 
+                        type="submit" 
+                        class="w-full bg-primary text-white py-3 px-4 rounded-lg font-medium hover:bg-primary/90 transition focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    >
+                        <span id="loginButtonText">Sign In</span>
+                        <div id="loginSpinner" class="hidden">
+                            <div class="inline-block animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white"></div>
+                        </div>
+                    </button>
+
+                    <!-- Demo Credentials -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <h3 class="text-sm font-medium text-blue-800 mb-2">Demo Credentials:</h3>
+                        <div class="text-xs text-blue-700 space-y-1">
+                            <div><strong>User:</strong> user@consticonnect.com / password123</div>
+                            <div><strong>Admin:</strong> admin@consticonnect.com / admin123</div>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Divider -->
+                <div class="my-6 flex items-center">
+                    <div class="flex-1 border-t border-gray-300"></div>
+                    <span class="px-4 text-sm text-gray-500">or</span>
+                    <div class="flex-1 border-t border-gray-300"></div>
+                </div>
+
+                <!-- Social Login -->
+                <div class="space-y-3">
+                    <button class="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                        <i class="fab fa-google text-red-500 mr-3"></i>
+                        Continue with Google
+                    </button>
+                    <button class="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                        <i class="fab fa-github text-gray-800 mr-3"></i>
+                        Continue with GitHub
+                    </button>
+                </div>
+
+                <!-- Sign Up Link -->
+                <div class="text-center mt-6">
+                    <p class="text-sm text-gray-600">
+                        Don't have an account? 
+                        <a href="#" class="text-primary hover:text-primary/80 font-medium transition">
+                            Sign up
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Back to Home -->
+            <div class="text-center mt-6">
+                <a href="index.html" class="text-sm text-gray-600 hover:text-primary transition">
+                    <i class="fas fa-arrow-left mr-1"></i>
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-sm w-full mx-4">
+            <div class="flex items-center mb-4">
+                <div class="bg-red-100 p-2 rounded-full mr-3">
+                    <i class="fas fa-exclamation-triangle text-red-600"></i>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900">Login Error</h3>
+            </div>
+            <p id="errorMessage" class="text-gray-600 mb-4"></p>
+            <button id="closeErrorModal" class="w-full bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConstiConnect - Constitutional Awareness Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/config.js"></script>
+</head>
+<body class="bg-light text-dark font-sans">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+        <div class="container mx-auto flex h-16 items-center justify-between px-4">
+            <div class="flex items-center space-x-2">
+                <div class="bg-primary p-2 rounded-lg">
+                    <i class="fas fa-scale-balanced text-white text-xl"></i>
+                </div>
+                <span class="text-2xl font-serif font-bold text-primary">ConstiConnect</span>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="#home" class="transition-colors hover:text-primary">Home</a>
+                <a href="#news" class="transition-colors hover:text-primary">News Feed</a>
+                <a href="#articles" class="transition-colors hover:text-primary">Article Match</a>
+                <a href="#ai" class="transition-colors hover:text-primary">AI Analysis</a>
+                <a href="#bookmarks" class="transition-colors hover:text-primary">Bookmarks</a>
+                <a href="#about" class="transition-colors hover:text-primary">About</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-3" data-user-info>
+                    <!-- User info will be populated by auth.js -->
+                </div>
+                
+                <a href="login.html" data-auth="logged-out" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition text-sm font-medium">
+                    Sign In
+                </a>
+                
+                <button data-action="logout" data-auth="logged-in" class="text-gray-600 hover:text-gray-800 transition hidden">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+
+            <button class="md:hidden p-2">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-grid-white/[0.05] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-light"></div>
+        
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+            <div class="absolute top-[-200%] left-[-200%] w-[500%] h-[500%] animate-rotate">
+                <div class="absolute inset-0 bg-[conic-gradient(#0ea5e9_0%,#8b5cf6_10%,#ec4899_20%,#f97316_30%,#0ea5e9_40%,#8b5cf6_50%,#ec4899_60%,#f97316_70%,#0ea5e9_80%,#8b5cf6_90%,#ec4899_100%)] opacity-20 blur-[100px]"></div>
+            </div>
+        </div>
+        
+        <div class="container mx-auto relative z-10 flex flex-col items-center justify-center min-h-[90vh] px-4 py-16 text-center">
+            <div class="max-w-4xl">
+                <h1 class="text-4xl md:text-7xl font-serif font-bold mb-8 leading-tight">
+                    Connecting News with <br>
+                    <span class="gradient-text italic">Constitutional Wisdom</span>
+                </h1>
+                
+                <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+                    Discover how current events relate to the fundamental principles of the Indian Constitution. 
+                    Our AI-powered platform analyzes news and connects it to relevant constitutional articles.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#news" class="bg-primary text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-primary/90 transition flex items-center justify-center">
+                        Explore News Feed
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#ai" class="border-2 border-primary text-primary px-8 py-4 rounded-lg text-lg font-medium hover:bg-primary/5 transition flex items-center justify-center">
+                        Try AI Analysis
+                        <i class="fas fa-robot ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container mx-auto relative z-10 px-4 pb-20">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-100">
+                    <div class="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-brain text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">AI-Powered Analysis</h3>
+                    <p class="text-gray-600">Machine learning models connect news to constitutional principles</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-100">
+                    <div class="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-database text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Constitutional Database</h3>
+                    <p class="text-gray-600">Comprehensive collection of constitutional articles with explanations</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-100">
+                    <div class="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Insightful Analytics</h3>
+                    <p class="text-gray-600">Visualize connections between news and constitutional principles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Feed Section -->
+    <section id="news" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">News Feed</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Curated news articles with constitutional connections
+                </p>
+            </div>
+            
+            <div class="mb-8 flex flex-col md:flex-row gap-4">
+                <div class="relative flex-1">
+                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2">
+                        <i class="fas fa-search text-gray-400"></i>
+                    </div>
+                    <input type="text" placeholder="Search news articles..." class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                </div>
+                <div class="flex gap-2">
+                    <button class="bg-primary text-white px-4 py-3 rounded-lg hover:bg-primary/90 transition flex items-center">
+                        <i class="fas fa-filter mr-2"></i> Filter
+                    </button>
+                </div>
+            </div>
+            
+            <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- News cards will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Analysis Section -->
+    <section id="ai" class="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">AI Constitutional Analysis</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Our machine learning model analyzes news content and connects it to relevant constitutional articles
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+                <div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-4">Analyze News Content</h3>
+                        <textarea id="newsInput" class="w-full h-40 p-4 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Paste news article text here..."></textarea>
+                        <button id="analyzeBtn" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition w-full">
+                            <i class="fas fa-robot mr-2"></i> Analyze with AI
+                        </button>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold mb-4">Analysis Results</h3>
+                        <div id="resultsContainer" class="space-y-4">
+                            <div class="text-center py-10 text-gray-500">
+                                <i class="fas fa-microscope text-4xl mb-4"></i>
+                                <p>Enter a news article and click "Analyze with AI" to see constitutional connections</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">How Our AI Model Works</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold mb-2">Constitutional Dataset</h4>
+                        <div id="constitutionalDataset">
+                            <!-- Constitutional dataset will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <h4 class="font-bold mb-2">Python Analysis Code</h4>
+                    <div class="code-block mb-4">
+                        <pre id="pythonCode">
+                            <!-- Python code will be loaded here -->
+                        </pre>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h4 class="font-bold mb-2">Model Performance</h4>
+                        <div class="w-full h-64">
+                            <canvas id="modelChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Match Section -->
+    <section id="articles" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Constitutional Articles</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Explore the fundamental principles of the Indian Constitution
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div id="articlesList" class="space-y-6">
+                    <!-- Article cards will be loaded here -->
+                </div>
+                
+                <div id="articleDetail" class="bg-white p-8 rounded-xl shadow-lg">
+                    <!-- Article detail will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">About ConstiConnect</h2>
+            </div>
+            
+            <div class="mb-12 p-8 bg-primary/5 rounded-xl border-l-4 border-primary max-w-4xl mx-auto">
+                <blockquote class="text-2xl font-serif italic leading-relaxed mb-4 text-center">
+                    "WE, THE PEOPLE OF INDIA, having solemnly resolved to constitute India into a 
+                    SOVEREIGN SOCIALIST SECULAR DEMOCRATIC REPUBLIC and to secure to all its citizens..."
+                </blockquote>
+                <cite class="text-gray-600 text-center block">— Preamble to the Constitution of India</cite>
+            </div>
+            
+            <div class="prose prose-lg max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+                <p class="text-gray-700 mb-6 leading-relaxed">
+                    ConstiConnect bridges the gap between current events and constitutional knowledge. 
+                    Using advanced NLP and AI technologies, we help citizens understand how daily news 
+                    relates to the fundamental principles enshrined in the Indian Constitution.
+                </p>
+                
+                <h3 class="text-2xl font-bold mb-4">AI Technology</h3>
+                <p class="text-gray-700 mb-6 leading-relaxed">
+                    Our platform uses Python-based machine learning models to analyze news content and match it with relevant constitutional provisions. 
+                    The system employs TF-IDF vectorization and cosine similarity to identify connections between news text and constitutional articles.
+                </p>
+                
+                <h3 class="text-2xl font-bold mb-4">Constitutional Dataset</h3>
+                <p class="text-gray-700 mb-6 leading-relaxed">
+                    We maintain a comprehensive database of constitutional articles with detailed explanations, 
+                    keywords, and categories. This dataset is continuously updated and refined to improve the 
+                    accuracy of our AI matching system.
+                </p>
+                
+                <h3 class="text-2xl font-bold mb-4">Why It Matters</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    In a democracy, informed citizenship is crucial. By connecting news with constitutional 
+                    articles, we promote legal awareness, civic education, and democratic participation. 
+                    Every citizen deserves to understand their rights and duties as outlined in our Constitution.
+                </p>
+            </div>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fab fa-python text-primary text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Python Backend</h4>
+                    <p class="text-gray-600">
+                        Machine learning models built with scikit-learn for constitutional analysis
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-database text-primary text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Constitutional Database</h4>
+                    <p class="text-gray-600">
+                        Comprehensive collection of constitutional articles with metadata
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-primary text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Performance Analytics</h4>
+                    <p class="text-gray-600">
+                        Continuous monitoring and improvement of matching accuracy
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="bg-primary p-2 rounded-lg">
+                            <i class="fas fa-scale-balanced text-white"></i>
+                        </div>
+                        <span class="text-2xl font-serif font-bold text-primary">ConstiConnect</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Connecting news with constitutional wisdom for informed citizenship.
+                    </p>
+                    <p class="text-sm text-gray-600">
+                        Built with Python, Flask, and modern web technologies.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><a href="#home" class="hover:text-primary transition">Home</a></li>
+                        <li><a href="#news" class="hover:text-primary transition">News Feed</a></li>
+                        <li><a href="#ai" class="hover:text-primary transition">AI Analysis</a></li>
+                        <li><a href="#articles" class="hover:text-primary transition">Articles</a></li>
+                        <li><a href="#about" class="hover:text-primary transition">About</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><a href="#" class="hover:text-primary transition">Constitution of India</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Fundamental Rights</a></li>
+                        <li><a href="#" class="hover:text-primary transition">AI Model Documentation</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Developer API</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 my-8"></div>
+            
+            <div class="flex flex-col sm:flex-row justify-between items-center text-sm text-gray-600">
+                <p>&copy; 2024 ConstiConnect. All rights reserved.</p>
+                <p>Made with ❤️ for Indian democracy</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
