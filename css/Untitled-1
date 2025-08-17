@@ -1,0 +1,15 @@
+ConstiConnect/
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   ├── tailwind.config.js
+│   ├── chart.js
+│   └── main.js
+├── assets/
+│   └── images/
+│       ├── news1.jpg
+│       ├── news2.jpg
+│       └── news3.jpg
+└── data/
+    └── articles.json
